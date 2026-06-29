@@ -1,0 +1,30 @@
+{
+  "name": "saucedemo-dummyjson-automation",
+  "version": "1.0.0",
+  "description": "Consultant-grade UI + API test automation framework (Playwright, JavaScript) for the spriteCloud challenge",
+  "type": "commonjs",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --project=ui",
+    "test:api": "playwright test --project=api",
+    "report": "playwright show-report",
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "playwright",
+    "test-automation",
+    "ui-testing",
+    "api-testing"
+  ],
+  "author": "Eric Becker",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.49.1",
+    "dotenv": "^16.4.7",
+    "eslint": "^9.17.0"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1"
+  }
+}
