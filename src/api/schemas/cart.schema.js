@@ -27,7 +27,7 @@ const cartSchema = {
       type: 'array',
       items: {
         type: 'object',
-        required: ['id', 'title', 'price', 'quantity', 'total', 'discountedTotal'],
+        required: ['id', 'title', 'price', 'quantity', 'total', 'discountedPrice'],
         properties: {
           id: { type: 'integer' },
           title: { type: 'string', minLength: 1 },
@@ -35,7 +35,7 @@ const cartSchema = {
           quantity: { type: 'integer', minimum: 1 },
           total: { type: 'number', minimum: 0 },
           discountPercentage: { type: 'number' },
-          discountedTotal: { type: 'number', minimum: 0 },
+          discountedPrice: { type: 'number', minimum: 0 },
         },
         additionalProperties: true,
       },
