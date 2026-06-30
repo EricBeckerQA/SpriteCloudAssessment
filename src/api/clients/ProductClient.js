@@ -13,6 +13,11 @@ class ProductClient extends BaseApiClient {
   async delete(productId) {
     return this.request.delete(`/products/${productId}`);
   }
+
+  /** PUT /products/{id} — DummyJSON simulates an update and echoes the merged fields back. */
+  async update(productId, fields) {
+    return this.request.put(`/products/${productId}`, { data: fields });
+  }
 }
 
 module.exports = { ProductClient };
