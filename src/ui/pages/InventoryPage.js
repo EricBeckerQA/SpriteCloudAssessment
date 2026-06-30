@@ -10,11 +10,7 @@ const SortOption = Object.freeze({
   PRICE_HIGH_TO_LOW: 'hilo',
 });
 
-/**
- * Product listing page. Owns the locators for items, the sort control and the
- * cart link, plus atomic actions (add item, sort, read names). The spec decides
- * what to assert.
- */
+/** Product listing page: item locators, sort control, cart link. */
 class InventoryPage extends BasePage {
   constructor(page) {
     super(page);
@@ -22,13 +18,9 @@ class InventoryPage extends BasePage {
     this.itemName = page.locator('[data-test="inventory-item-name"]');
     this.sortDropdown = page.locator('[data-test="product-sort-container"]');
     this.cartLink = page.locator('[data-test="shopping-cart-link"]');
-    this.cartBadge = page.locator('[data-test="shopping-cart-badge"]');
   }
 
-  /**
-   * Add a single product to the cart by its visible name. Scoping the button to
-   * the matching item card keeps this resilient to ordering/sort changes.
-   */
+  /** Add a single product to the cart by its visible name. */
   async addItemToCart(itemName) {
     const card = this.inventoryItem.filter({
       has: this.page.locator('[data-test="inventory-item-name"]', { hasText: itemName }),
@@ -50,11 +42,6 @@ class InventoryPage extends BasePage {
   /** Ordered list of product names exactly as currently rendered. */
   async getProductNames() {
     return this.itemName.allTextContents();
-  }
-
-  async getCartItemCount() {
-    if ((await this.cartBadge.count()) === 0) return 0;
-    return Number(await this.cartBadge.textContent());
   }
 
   async openCart() {

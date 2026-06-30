@@ -1,10 +1,6 @@
 'use strict';
 
-/**
- * Centralised test data. Keeping users, product ids and business constants here
- * (rather than as magic strings inside specs) means a value changes in exactly
- * one place and intent is self-documenting at the call site.
- */
+/** Centralised test data: users, product ids and business constants. */
 
 const uiUsers = {
   standard: {
@@ -23,11 +19,7 @@ const apiUser = {
   password: process.env.API_PASSWORD || 'emilyspass',
 };
 
-/**
- * SauceDemo applies an 8% sales tax at checkout. We keep the rate here so the
- * price assertion can *derive* the expected tax/total instead of hardcoding a
- * dollar figure — if the rate ever changes, the test still validates the math.
- */
+/** SauceDemo's checkout tax rate, used to derive expected totals rather than hardcoding them. */
 const checkout = {
   taxRate: 0.08,
   customer: {
@@ -35,10 +27,10 @@ const checkout = {
     lastName: 'Becker',
     postalCode: '1011AB',
   },
-  // Items added to the cart for the checkout journey (at least two, per the brief).
   itemsUnderTest: [
     'Sauce Labs Backpack',
     'Sauce Labs Bike Light',
+    'Sauce Labs Bolt T-Shirt',
   ],
 };
 

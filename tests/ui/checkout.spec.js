@@ -9,13 +9,8 @@ const {
 } = require('../../src/utils/priceCalculator');
 
 /**
- * Challenge UI case 1: full checkout of at least two items, validate final price.
- *
- * The price assertion is *derived*, not hardcoded: we read the per-item prices
- * the summary shows, compute the expected subtotal/tax/total from them, and
- * assert the app's displayed breakdown matches. This catches a wrong tax rate
- * or a bad sum — failures a hardcoded "$43.18" check would either miss or make
- * brittle the moment SauceDemo changes its catalogue.
+ * Full checkout of multiple items, with the expected price breakdown derived
+ * from the per-item prices shown rather than hardcoded.
  */
 test.describe('SauceDemo checkout', () => {
   test('completes a multi-item checkout and validates the price breakdown', async ({
